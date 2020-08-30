@@ -134,7 +134,7 @@ The pipeline consist of 3 steps as follows:
 Lines between **69-152 in main.cpp** commense with to get data from sensor fusion including localization data in order to predict the positions for the surrounding cars.It basically checks whether there are cars in other lanes. This step is critical to avoid collision. 
 
 #### Behavior Planning  
-The instantaneous prediction data (car_left, ca_right, car_ahead) is transferred into here.  
+The instantaneous prediction data (car_left, car_right, car_ahead) is transferred into here.  
 Lines between **154-184 in main.cpp** makes the decision whether the ego car should accelerate/deaccelerate or change it's lane. Also the reference velocity is set here in order to prevent exceeding the speed limit.
 
 #### Trajectory Generation  
