@@ -1,6 +1,8 @@
 # CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
-   
+
+![](img/distance.png)  
+
 ### Simulator.
 You can download the Term3 Simulator which contains the Path Planning Project from the [releases tab (https://github.com/udacity/self-driving-car-sim/releases/tag/T3_v1.2).  
 
@@ -28,32 +30,28 @@ Here is the data provided from the Simulator to the C++ Program
 
 #### Main car's localization Data (No Noise)
 
-["x"] The car's x position in map coordinates
-
-["y"] The car's y position in map coordinates
-
-["s"] The car's s position in frenet coordinates
-
-["d"] The car's d position in frenet coordinates
-
-["yaw"] The car's yaw angle in the map
-
-["speed"] The car's speed in MPH
+| **Input** | Definition |
+|:---------:|:---------:|
+| x | Car's x position in map coordinates |
+| y | Car's y position in map coordinates |
+| s | Car's s position in frenet coordinates |
+| d | Car's d position in frenet coordinates |
+| yaw | Car's yaw angle in the map |
+| speed | Car's speed in MPH|
 
 #### Previous path data given to the Planner
 
-//Note: Return the previous list but with processed points removed, can be a nice tool to show how far along
-the path has processed since last time. 
-
-["previous_path_x"] The previous list of x points previously given to the simulator
-
-["previous_path_y"] The previous list of y points previously given to the simulator
+| **Input** | Definition |
+|:---------:|:---------:|
+| previous_path_x | Previous list of x points previously given to the simulator |
+| previous_path_y | Previous list of y points previously given to the simulator |
 
 #### Previous path's end s and d values 
 
-["end_path_s"] The previous list's last point's frenet s value
-
-["end_path_d"] The previous list's last point's frenet d value
+| **Input** | Definition |
+|:---------:|:---------:|
+| end_path_s | Previous list's last point's frenet s value |
+| end_path_d | Previous list's last point's frenet d value |
 
 #### Sensor Fusion Data, a list of all other car's attributes on the same side of the road. (No Noise)
 
@@ -61,14 +59,9 @@ the path has processed since last time.
 
 ## Details
 
-1. The car uses a perfect controller and will visit every (x,y) point it recieves in the list every .02 seconds. The units for the (x,y) points are in meters and the spacing of the points determines the speed of the car. The vector going from a point to the next point in the list dictates the angle of the car. Acceleration both in the tangential and normal directions is measured along with the jerk, the rate of change of total Acceleration. The (x,y) point paths that the planner recieves should not have a total acceleration that goes over 10 m/s^2, also the jerk should not go over 50 m/s^3. (NOTE: As this is BETA, these requirements might change. Also currently jerk is over a .02 second interval, it would probably be better to average total acceleration over 1 second and measure jerk from that.
+1. The car uses a perfect controller and will visit every (x,y) point it recieves in the list every .02 seconds. The units for the (x,y) points are in meters and the spacing of the points determines the speed of the car. The vector going from a point to the next point in the list dictates the angle of the car. Acceleration both in the tangential and normal directions is measured along with the jerk, the rate of change of total Acceleration. The (x,y) point paths that the planner recieves should not have a **total acceleration** that goes over **10 m/s^2**, also the **jerk** should not go over **50 m/s^3**.
 
 2. There will be some latency between the simulator running and the path planner returning a path, with optimized code usually its not very long maybe just 1-3 time steps. During this delay the simulator will continue using points that it was last given, because of this its a good idea to store the last points you have used so you can have a smooth transition. previous_path_x, and previous_path_y can be helpful for this transition since they show the last points given to the simulator controller with the processed points already removed. You would either return a path that extends this previous path or make sure to create a new path that has a smooth transition with this last path.
-
-## Tips
-
-A really helpful resource for doing this project and creating smooth trajectories was using http://kluge.in-chemnitz.de/opensource/spline/, the spline function is in a single hearder file is really easy to use.
-
 ---
 
 ## Dependencies
@@ -92,57 +85,45 @@ A really helpful resource for doing this project and creating smooth trajectorie
     git checkout e94b6e1
     ```
 
-## Editor Settings
-
-We've purposefully kept editor configuration files out of this repo in order to
-keep it as simple and environment agnostic as possible. However, we recommend
-using the following settings:
-
-* indent using spaces
-* set tab width to 2 spaces (keeps the matrices in source code aligned)
-
-## Code Style
-
-Please (do your best to) stick to [Google's C++ style guide](https://google.github.io/styleguide/cppguide.html).
-
-## Project Instructions and Rubric
-
-Note: regardless of the changes you make, your project must be buildable using
-cmake and make!
-
-
-## Call for IDE Profiles Pull Requests
-
-Help your fellow students!
-
-We decided to create Makefiles with cmake to keep this project as platform
-agnostic as possible. Similarly, we omitted IDE profiles in order to ensure
-that students don't feel pressured to use one IDE or another.
-
-However! I'd love to help people get up and running with their IDEs of choice.
-If you've created a profile for an IDE that you think other students would
-appreciate, we'd love to have you add the requisite profile files and
-instructions to ide_profiles/. For example if you wanted to add a VS Code
-profile, you'd add:
-
-* /ide_profiles/vscode/.vscode
-* /ide_profiles/vscode/README.md
-
-The README should explain what the profile does, how to take advantage of it,
-and how to install it.
-
-Frankly, I've never been involved in a project with multiple IDE profiles
-before. I believe the best way to handle this would be to keep them out of the
-repo root to avoid clutter. My expectation is that most profiles will include
-instructions to copy files to a new location to get picked up by the IDE, but
-that's just a guess.
-
-One last note here: regardless of the IDE used, every submitted project must
-still be compilable with cmake and make./
-
-## How to write a README
-A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
-
 ## Cubic Spline interpolation in C++  
 I used a helper function called spline.h in trajectory generation step.  
 **Reference:** https://kluge.in-chemnitz.de/opensource/spline/spline.h  
+
+# SELF-DRIVING CAR NANODEGREE - Highway Driving Project 
+In this project, the goal is to design a path planner that is able to create smooth, safe paths for the car to follow along a 3 lane highway with traffic. A successful path planner will be able to keep inside its lane, avoid hitting other cars, and pass slower moving traffic all by using localization, sensor fusion, and map data.  
+
+## RUBRIC CRITERIA
+For the project, each rubric criteria is satisfied.  
+
+### Compilation  
+The code is compiled without errors.  
+
+![](img/compile.png)  
+
+### Distance without an incident  
+I run the simulator for 10 minutes and the car drive **6.97 miles** without an incident.  
+
+![](img/distance.png)  
+
+### Speed and Acceleration Limits  
+The car did not exceed the speed limit (50 MPH), total acceleration (10 m/s^2) and jerk limit (10 m/s^3).  
+
+![](img/speedlim.png)  
+
+### No Collision  
+The ego did not collide by check it's surrounding cars and predict their behavior.  
+According to behavior prediction, the ego car changed it's lane safely.  
+
+### Staying in the Lane  
+Ego car stayed in its lane, except for the time between changing lanes.  
+
+### Lane Change  
+The car is able to smoothly change lanes when it makes sense to do so, such as when behind a slower moving car and an adjacent lane is clear of other traffic.  
+(Please see the animation below)  
+
+![](img/lc.png)
+
+###  Reflection  
+The coding details is provided in the README.md document.  
+
+**Note:** A 10x faster video (simulation.mp4) for the simulation is provided.
