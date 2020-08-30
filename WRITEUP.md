@@ -30,9 +30,9 @@ Ego car stayed in its lane, except for the time between changing lanes.
 The car is able to smoothly change lanes when it makes sense to do so, such as when behind a slower moving car and an adjacent lane is clear of other traffic.  
 (Please see the animation below)  
 
-![](img/lc.png) 
+![](img/lc.png)
 
 ###  Reflection  
 The coding details is provided in the README.md document.  
 
-**Note:**A 10x faster video (simulation.mp4) for the simulation is provided.
+**Note:** A 10x faster video (simulation.mp4) for the simulation is provided.
