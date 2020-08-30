@@ -120,6 +120,26 @@ The car is able to smoothly change lanes when it makes sense to do so, such as w
 
 ![](img/lc.gif)
 
+### Reflection  
+![](img/pipeline.png)
+
+Sensor fusion is provided in src/main.cpp file.  
+A pipeline is implemented in src/main.cpp and a helper function (spline.h) is added for this project.  
+The pipeline consist of 3 steps as follows:  
+* Prediction (by using data from sensor fusion)  
+* Behavior Planning  
+* Trajectory Generation  
+
+#### Prediction  
+Lines between **69-152 in main.cpp** commense with to get data from sensor fusion including localization data in order to predict the positions for the surrounding cars.It basically checks whether there are cars in other lanes. This step is critical to avoid collision. 
+
+#### Behavior Planning  
+The instantaneous prediction data (car_left, ca_right, car_ahead) is transferred into here.  
+Lines between **154-184 in main.cpp** makes the decision whether the ego car should accelerate/deaccelerate or change it's lane. Also the reference velocity is set here in order to prevent exceeding the speed limit.
+
+#### Trajectory Generation  
+Lines between **187-295 in main.cpp** is the trajectory generation part. This part basically generates the trajectories using the output of the behavior planning part. It is very important that the trajectory generated is smooth. Otherwise, it may cause sudden in acceleration and/or JERK which is undesirable. To do that, past trajectory points are copied and the path points are filled using the spline. Acceleration is dependent for the every points of the trajectory to be able to maintain a dynamic decision making because the conditions in traffic can change suddenly. This is the reason for that the ego car can change it's speed during the lane changes.  
+
 **Note:** A 10x faster video (simulation.mp4) for the simulation is provided.  
 
 **Note-2:** While creating the pipeline, I used the article at: https://medium.com/@jonathan_hui/self-driving-car-path-planning-to-maneuver-the-traffic-ac63f5a620e2
