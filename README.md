@@ -89,7 +89,7 @@ Here is the data provided from the Simulator to the C++ Program
 I used a helper function called spline.h in trajectory generation step.  
 **Reference:** https://kluge.in-chemnitz.de/opensource/spline/spline.h  
 
-## RUBRIC CRITERIA
+## Rubric Points
 For the project, each rubric criteria is satisfied.  
 
 ### Compilation  
