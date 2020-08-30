@@ -120,4 +120,6 @@ The car is able to smoothly change lanes when it makes sense to do so, such as w
 
 ![](img/lc.gif)
 
-**Note:** A 10x faster video (simulation.mp4) for the simulation is provided.
+**Note:** A 10x faster video (simulation.mp4) for the simulation is provided.  
+
+**Note-2:** While creating the pipeline, I used the article at: https://medium.com/@jonathan_hui/self-driving-car-path-planning-to-maneuver-the-traffic-ac63f5a620e2
